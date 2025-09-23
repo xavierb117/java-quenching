@@ -11,7 +11,19 @@ public class Practice {
      * @return the sum of the odd numbers in the array
      */
     public static int oddSum(int[] nums) {
-        return 0;
+        if (nums == null) {
+            return 0;
+        }
+
+        int sum = 0;
+
+        for (int num:nums) {
+            if (num % 2 == 1 || num % 2 == -1) {
+                sum += num;
+            }
+        }
+
+        return sum;
     }
 
     /**
