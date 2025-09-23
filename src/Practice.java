@@ -125,4 +125,29 @@ public class Practice {
     public static boolean sumMatch(BinaryTreeNode<Integer> root, ListNode<Integer> head) {
         return false;
     }
+
+    /**
+     * Returns the sum of all the vertices in a graph that are reachable from a given
+     * starting vertex.
+     * 
+     * Returns 0 if the starting vertex is null.
+     * 
+     * @param start the starting vertex
+     * @return the sum of all the vertices
+     */
+    public int graphSum(Vertex<Integer> start) {
+        return 0;
+    }
+
+    /**
+     * Returns the count of vertices in a graph that have an outdegree of 0.
+     * 
+     * Returns 0 if the starting vertex is null.
+     * 
+     * @param start the entrypoint to the graph
+     * @return the count of vertices with outdegree 0
+     */
+    public int sinkCount(Vertex<Integer> start) {
+        return 0;
+    }
 }
