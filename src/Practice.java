@@ -21,7 +21,7 @@ public class Practice {
      * lexicographically.
      * 
      * @param words a set of words
-     * @return the smallest word in the set
+     * @return the shortest word in the set with a lexicographic tiebreaker
      * @throws IllegalArgumentException if words is empty
      * @throws NullPointerException if words is null
      */
@@ -135,7 +135,7 @@ public class Practice {
      * @param start the starting vertex
      * @return the sum of all the vertices
      */
-    public int graphSum(Vertex<Integer> start) {
+    public static int graphSum(Vertex<Integer> start) {
         return 0;
     }
 
@@ -147,7 +147,7 @@ public class Practice {
      * @param start the entrypoint to the graph
      * @return the count of vertices with outdegree 0
      */
-    public int sinkCount(Vertex<Integer> start) {
+    public static int sinkCount(Vertex<Integer> start) {
         return 0;
     }
 }
