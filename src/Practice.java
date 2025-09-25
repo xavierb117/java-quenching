@@ -1,6 +1,9 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 
 public class Practice {
@@ -167,7 +170,38 @@ public class Practice {
      * @return the number of levels in the tree
      */
     public static int levelCount(BinaryTreeNode<?> root) {
-        return 0;
+        if (root == null) {
+            return 0;
+        }
+
+        int level = 0;
+
+        ArrayList<BinaryTreeNode<?>> arr = new ArrayList<>(); 
+        Queue<ArrayList<BinaryTreeNode<?>>> queue = new LinkedList<>();
+
+        arr.add(root);
+        queue.offer(arr);
+
+        while(!queue.isEmpty()) {
+            ArrayList<BinaryTreeNode<?>> curr = queue.poll();
+            ArrayList<BinaryTreeNode<?>> next = new ArrayList<>();
+
+            for (BinaryTreeNode<?> node : curr) {
+                if (node.left != null) {
+                    next.add(node.left);
+                }
+                if (node.right != null) {
+                    next.add(node.right);
+                }
+            }
+
+            if (!next.isEmpty()) {
+                queue.offer(next);
+            }
+            level += 1;
+        }
+
+        return level;
     }
 
 
