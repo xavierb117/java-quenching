@@ -229,7 +229,52 @@ public class Practice {
      * @return the sum of the nodes at the given level
      */
     public static int sumAtLevel(BinaryTreeNode<Integer> root, int level) {
-        return 0;
+        if (root == null || level <= 0) {
+            return 0;
+        }
+
+        int currLevel = 1;
+
+        ArrayList<BinaryTreeNode<Integer>> arr = new ArrayList<>(); 
+        Queue<ArrayList<BinaryTreeNode<Integer>>> queue = new LinkedList<>();
+
+        arr.add(root);
+        queue.offer(arr);
+
+        while (!queue.isEmpty()) {
+            if (currLevel == level) {
+                break;
+            }
+
+            ArrayList<BinaryTreeNode<Integer>> curr = queue.poll();
+            ArrayList<BinaryTreeNode<Integer>> next = new ArrayList<>();
+
+            for (BinaryTreeNode<Integer> node : curr) {
+                if (node.left != null) {
+                    next.add(node.left);
+                }
+                if (node.right != null) {
+                    next.add(node.right);
+                }
+            }
+
+            if (!next.isEmpty()) {
+                queue.offer(next);
+            }
+            currLevel += 1;
+        }
+
+        if (currLevel < level) {
+            return 0;
+        }
+
+        int sum = 0;
+        ArrayList<BinaryTreeNode<Integer>> curr = queue.poll();
+        for (BinaryTreeNode<Integer> node : curr) {
+            sum += node.data;
+        }
+
+        return sum;
     }
 
 
