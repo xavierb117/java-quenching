@@ -330,7 +330,27 @@ public class Practice {
      * @return the sum of all the vertices
      */
     public static int graphSum(Vertex<Integer> start) {
-        return 0;
+        if (start == null) {
+            return 0;
+        }
+        Set<Vertex<Integer>> visited = new HashSet<>();
+        return graphHelper(start, visited);
+    }
+
+    public static int graphHelper(Vertex<Integer> start, Set<Vertex<Integer>> visited) {
+        if (start == null || visited.contains(start)) {
+            return 0;
+        }
+
+        visited.add(start);
+        int sum = 0;
+        sum += start.data;
+
+        for (Vertex<Integer> neighbor : start.neighbors) {
+            sum += graphHelper(neighbor, visited);
+        }
+
+        return sum;
     }
 
     /**
