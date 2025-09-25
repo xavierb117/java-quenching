@@ -289,7 +289,35 @@ public class Practice {
      * @return true if the sums are equal, false otherwise
      */
     public static boolean sumMatch(BinaryTreeNode<Integer> root, ListNode<Integer> head) {
-        return false;
+        int tree = treehelper(root);
+        int linked = listnodeHelper(head);
+
+        if (tree == linked) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public static int treehelper(BinaryTreeNode<Integer> root) {
+        if (root == null) {
+            return 0;
+        }
+
+        return root.data + treehelper(root.left) + treehelper(root.right);
+    }
+
+    public static int listnodeHelper(ListNode<Integer> head) {
+        int sum = 0;
+
+        ListNode<Integer> curr = head;
+
+        while (curr != null) {
+            sum += curr.data;
+            curr = curr.next;
+        }
+        return sum;
     }
 
     /**
